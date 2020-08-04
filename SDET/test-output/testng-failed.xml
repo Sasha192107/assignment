@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.autodeskcrm.orgtest.CreateOrganizationTest">
+      <class name="com.autodeskcrm.assignment2.CreateOrgAndDeleteTest">
         <methods>
           <include name="createORgtest"/>
         </methods>
-      </class> <!-- com.autodeskcrm.orgtest.CreateOrganizationTest -->
+      </class> <!-- com.autodeskcrm.assignment2.CreateOrgAndDeleteTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

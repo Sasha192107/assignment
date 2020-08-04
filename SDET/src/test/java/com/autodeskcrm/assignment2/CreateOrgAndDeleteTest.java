@@ -1,4 +1,4 @@
-package com.autodeskcrm.orgtest;
+package com.autodeskcrm.assignment2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -14,10 +14,10 @@ import com.autodeskcrm.gerericutils.FileLib;
 import com.autodeskcrm.gerericutils.WebDriverUtils;
 /**
  * 
- * @author Deepak
+ * @author Sasha
  *
  */
-public class CreateOrganizationTest {
+public class CreateOrgAndDeleteTest {
 	
 	@Test
 	public void createORgtest() throws Throwable {
@@ -101,26 +101,28 @@ public class CreateOrganizationTest {
 		driver.findElement(By.name("submit")).click();
 		
 		/* Step 10: Select all the pages in by clicking org checkbox*/
+		String s1="//a[text()=\"";
+		String s2="\"]/ancestor::tr[1]/descendant::td//input[@name=\"selected_id\"]";
+		String s3=s1+orgName+s2;
 		
-		WebElement e1 = driver.findElement(By.name("selectall"));
-		e1.click();
+		driver.findElement(By.xpath(s3)).click();
+		
 		
 		/*Step 11: Click on the delete button*/
-		//driver.findElement(By.className("crmbutton small delete")).click();
+		driver.findElement(By.xpath("//input[@class=\"crmbutton small delete\"]")).click();
 		
+		/*s12 : Handle the delete alert */
+		wLib.alertOk(driver);
 		
-		
-		
-		
-		
-		 
-		
-		 
+		/* S13: Verify delete	 */
+		driver.findElement(By.name("submit")).click();
+		String orgdel = driver.findElement(By.xpath("//span[contains(text(),'No Organization Found !')]")).getText();
+		Assert.assertTrue(orgdel.contains("No Organization Found !"));
 			
 		/*step 1 : logout*/
 		//WebElement wb = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
-          //wLib.moveMouseToElemnet(driver, wb);
-		//driver.findElement(By.linkText("Sign Out")).click();
+         // wLib.moveMouseToElemnet(driver, wb);
+	//	driver.findElement(By.linkText("Sign Out")).click();
 		
 		/*close browse*/
 		

@@ -14,10 +14,10 @@ import com.autodeskcrm.gerericutils.FileLib;
 import com.autodeskcrm.gerericutils.WebDriverUtils;
 /**
  * 
- * @author Deepak
+ * @author Sasha
  *
  */
-public class CreateOrganizationTest {
+public class CreateOrgAndDelete {
 	
 	@Test
 	public void createORgtest() throws Throwable {
@@ -84,43 +84,11 @@ public class CreateOrganizationTest {
 		String actOrgName = driver.findElement(By.xpath("//span[@class='dvHeaderText']")).getText();
 			
 		Assert.assertTrue(actOrgName.contains(orgName));	
-		
-		/*Step 7 : Click and goto list of Organization */
-		driver.findElement(By.xpath("//a[text()=\"Organizations\"]")).click();
-		
-		
-		
-		
-		/*Step 8 : Select the organization name at drop down */
-		
-		WebElement sb1 = driver.findElement(By.name("search_field"));
-		wLib.select(sb1,"Organization Name");
-		
-		/* Step 9 : Search for the organization created */
-		driver.findElement(By.name("search_text")).sendKeys(orgName);
-		driver.findElement(By.name("submit")).click();
-		
-		/* Step 10: Select all the pages in by clicking org checkbox*/
-		
-		WebElement e1 = driver.findElement(By.name("selectall"));
-		e1.click();
-		
-		/*Step 11: Click on the delete button*/
-		//driver.findElement(By.className("crmbutton small delete")).click();
-		
-		
-		
-		
-		
-		
-		 
-		
-		 
 			
 		/*step 1 : logout*/
-		//WebElement wb = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
-          //wLib.moveMouseToElemnet(driver, wb);
-		//driver.findElement(By.linkText("Sign Out")).click();
+		WebElement wb = driver.findElement(By.xpath("//img[@src='themes/softed/images/user.PNG']"));
+          wLib.moveMouseToElemnet(driver, wb);
+		driver.findElement(By.linkText("Sign Out")).click();
 		
 		/*close browse*/
 		
